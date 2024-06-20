@@ -38,8 +38,7 @@ public class Element {
             element.clear();
             element.sendKeys(text);
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException | TimeoutException e) {
-            String message = "O elemento " + this.by.toString() + " existente no DOM e tem um conjunto de recursos como oculto.";
-            throw new Exception(message);
+            throw new Exception(e);
         }
     }
 

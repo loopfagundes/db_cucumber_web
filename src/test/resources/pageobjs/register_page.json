@@ -1,4 +1,8 @@
 {
   "Registrar": "xpath://button[text()='Registrar']",
-  "E-mail": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[2]/input"
+  "E-mail": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[2]/input",
+  "Nome":"xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[3]/input",
+  "Senha": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[4]/div/input",
+  "Confirmação senha": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[5]/div/input",
+  "Conta com saldo": "id:toggleAddBalance"
 }
