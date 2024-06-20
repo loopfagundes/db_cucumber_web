@@ -28,7 +28,7 @@ public class Page {
                 JSONParser jsonParser = new JSONParser();
                 jsonObject = (JSONObject) jsonParser.parse(
                         new FileReader(Helpers.getCurrentDir() +
-                                "/src/test/java/resources/pageobjs/" + selector.replace("@", "") + ".json")
+                                "/src/test/resources/pageobjs/" + selector.replace("@", "") + ".json")
                 );
             }
         }

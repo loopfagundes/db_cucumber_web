@@ -1,3 +1,4 @@
 {
-  "Registrar": "xpath://button[text()='Registrar']"
+  "Registrar": "xpath://button[text()='Registrar']",
+  "E-mail": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[2]/input"
 }
