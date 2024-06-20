@@ -1,0 +1,3 @@
+{
+  "Registrar": "xpath://button[text()='Registrar']"
+}
