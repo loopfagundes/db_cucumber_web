@@ -1,8 +1,12 @@
 package app.netlify.bugbank.stepdefs;
 
 import app.netlify.bugbank.data.FilesOperation;
+import app.netlify.bugbank.data.StorageSpace;
 import app.netlify.bugbank.widgets.Element;
 import io.cucumber.java.pt.Então;
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
 
 public class CustomSD {
     @Então("Preencho E-mail do usuario no campo de {string}")
@@ -21,5 +25,10 @@ public class CustomSD {
     public void to_fill_in_password(String locator) throws Exception {
         String password = FilesOperation.getProperties("dataUser_1").getProperty("password");
         new Element(locator).text(password);
+    }
+
+    @Então("Armazeno o numero da conta do usuario")
+    public void variableStorage() throws IOException, ParseException {
+        StorageSpace.ignoreTheLetters( "id:modalText","dataUser_1", "numberAccount", "digit");
     }
 }

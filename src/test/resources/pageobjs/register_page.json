@@ -4,5 +4,7 @@
   "Nome":"xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[3]/input",
   "Senha": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[4]/div/input",
   "Confirmação senha": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[5]/div/input",
-  "Conta com saldo": "id:toggleAddBalance"
+  "Conta com saldo": "id:toggleAddBalance",
+  "Cadastrar": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/button",
+  "Fechar": "id:btnCloseModal"
 }
