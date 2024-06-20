@@ -22,8 +22,5 @@ public class StorageSpace {
         String justDigit = separator[1].replaceAll("[^0-9]", "");
         FilesOperation.setProperty(nameProp, number, justNumber);
         FilesOperation.setProperty(nameProp, digit, justDigit);
-        System.out.println(Arrays.toString(separator));
-        System.out.println(justNumber);
-        System.out.println(justDigit);
     }
 }
