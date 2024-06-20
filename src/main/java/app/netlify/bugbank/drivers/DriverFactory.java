@@ -16,7 +16,7 @@ public class DriverFactory {
         boolean isHeadless;
 
         try {
-            driver = Driver.valueOf(System.getProperty("driver", "edge").toUpperCase());
+            driver = Driver.valueOf(System.getProperty("driver", "chrome").toUpperCase());
         } catch (IllegalArgumentException error) {
             throw new IllegalArgumentException(UNSUPPORTED_BROWSER);
         }
@@ -37,21 +37,19 @@ public class DriverFactory {
                 chromeOptions.addArguments("--disable-notifications");
                 chromeOptions.addArguments("--remote-allow-origins=*");
                 chromeOptions.addArguments("--ignored-certificates-errors");
-
                 if (isHeadless) {
                     chromeOptions.addArguments("--headless");
                 }
-
                 return new ChromeDriver(chromeOptions);
+
             case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-
                 if (isHeadless) {
                     firefoxOptions.addArguments("--headless");
                 }
-
                 return new FirefoxDriver(firefoxOptions);
+
             case EDGE:
                 WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = new EdgeOptions();
@@ -60,11 +58,9 @@ public class DriverFactory {
                 edgeOptions.addArguments("--disable-notifications");
                 edgeOptions.addArguments("--remote-allow-origins=*");
                 edgeOptions.addArguments("--ignored-certificates-errors");
-
                 if (isHeadless) {
                     edgeOptions.addArguments("--headless");
                 }
-
                 return new EdgeDriver(edgeOptions);
             default:
                 throw new IllegalArgumentException(UNSUPPORTED_BROWSER);
