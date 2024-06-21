@@ -1,6 +1,7 @@
-package app.netlify.bugbank.data;
+package app.netlify.bugbank.dataset;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.Properties;
 
 public class FilesOperation {
@@ -9,8 +10,8 @@ public class FilesOperation {
             + File.separator
             + "src"
             + File.separator
-            + "test" +
-            File.separator
+            + "test"
+            + File.separator
             + "resources"
             + File.separator
             + "properties"
@@ -23,16 +24,15 @@ public class FilesOperation {
 
         try {
             File file = new File(DIR_PATH_PROPERTIES + name + ".properties");
-            inputStream = new FileInputStream(file);
+            inputStream = Files.newInputStream(file.toPath());
             prop.load(inputStream);
             return prop;
         } catch (Exception e) {
-            System.out.println("Não carregou o arquivo " + e.getMessage());
+            throw new RuntimeException("Não carregou o arquivo " + e.getMessage());
         } finally {
             assert inputStream != null;
             inputStream.close();
         }
-        return prop;
     }
 
     public static void setProperty(String nameProp, String key, String value) throws IOException {
@@ -46,10 +46,10 @@ public class FilesOperation {
 
         try {
             File file = new File(DIR_PATH_PROPERTIES + name + ".properties");
-            outputStream = new FileOutputStream(file);
+            outputStream = Files.newOutputStream(file.toPath());
             properties.store(outputStream, null);
         } catch (Exception e) {
-            System.out.println("Não foi possível salvar as propriedades: " + e.getMessage());
+            throw new RuntimeException("Não foi possível salvar as propriedades: " + e.getMessage());
         } finally {
             if (outputStream != null) {
                 outputStream.close();
