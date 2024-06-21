@@ -7,7 +7,7 @@ import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
-public class UserSD {
+public class RegisterUserSD {
 
     @Então("Preencho E-mail do usuario no campo de {string}")
     public void to_fill_in_email(String locator) throws Exception {

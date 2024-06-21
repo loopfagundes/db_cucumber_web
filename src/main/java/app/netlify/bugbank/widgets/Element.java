@@ -20,15 +20,23 @@ public class Element {
         this.driver = DriverManager.getDriver();
         this.by = Page.selector(Page.getSelector(locator));
         this.locator = Page.getElement(locator);
-        this.wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(5));
     }
 
-    public void click() {
+    public void click() throws Exception {
         try {
             this.wait.until(ExpectedConditions.elementToBeClickable(this.by)).click();
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException | TimeoutException e) {
+            throw new Exception(e);
+        }
+    }
+
+    public void jsClick() throws Exception {
+        try {
             JavascriptExecutor executor = (JavascriptExecutor)this.driver;
             executor.executeScript("arguments[0].click();", this.locator);
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException | TimeoutException e) {
+            throw new Exception(e);
         }
     }
 

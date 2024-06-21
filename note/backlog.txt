@@ -1,0 +1,20 @@
+***[BACKLOG]***
+
+RESOLVER O PROBLEMA:
+
+1. Gravar e obter os dados dos usuarios. (properties):
+    um metodos(@Entao) com duas properties e nao preciso criar dois metodos por cada properties.
+    Se for nao tem como, deixar assim dois metodos e duas get e set de properties.
+
+2. Separados SD:
+    quando criar uma pasta de Steps e executou para teste e dando error.
+    somente dentro pasta StepDefs funcionou.
+    *isso que eu quero separados*
+
+3. Arquivo de register_page cadastrou um novo usuario com sucesso e fechar o teste.
+    depois criei feature de login_test e testou,
+    e retornou a mesnagem "Usuário ou senha inválido. Tente novamente ou verifique suas informações!"
+    pois ja gravou dentro a properties.
+
+4. Classe TestRunner, quando executei o teste foi primeiro login_test e depois register.
+    Quero que ordem primeiro register e depois login.

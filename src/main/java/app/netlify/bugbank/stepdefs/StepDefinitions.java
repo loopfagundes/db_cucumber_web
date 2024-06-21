@@ -3,11 +3,9 @@ package app.netlify.bugbank.stepdefs;
 import app.netlify.bugbank.drivers.DriverManager;
 import app.netlify.bugbank.widgets.Element;
 import io.cucumber.java.pt.Então;
-import org.json.simple.parser.ParseException;
-
-import java.io.IOException;
 
 public class StepDefinitions {
+
     @Então("Navego para {string}")
     public void eu_vou_para(String url) {
         DriverManager.getDriver().get(url);
@@ -15,8 +13,7 @@ public class StepDefinitions {
     }
 
     @Então("Clico no botão {string}")
-    @Então("Clico no elemento {string}")
-    public void eu_clico(String locator) throws IOException, ParseException {
+    public void eu_clico(String locator) throws Exception {
         new Element(locator).click();
     }
 
