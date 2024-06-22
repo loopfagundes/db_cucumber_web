@@ -47,6 +47,11 @@ public class RegisterSD {
         new Element(locator).getData("dataUser_2", "password");
     }
 
+    @Então("Clico no botao {string}")
+    public void click_js(String locator) throws Exception {
+        new Element(locator).jsClick();
+    }
+
     @Então("Armazeno o numero da conta do usuario")
     public void variable_storage2() throws IOException, ParseException {
         StorageSpace.ignoreTheLetters("id:modalText", "dataUser_2", "conta", "digita");

@@ -13,5 +13,7 @@
   "Acessar o meu login": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[1]/form/div[3]/button[1]",
   "Saldo em conta": "id:textBalance",
   "Meu nome": "id:textName",
+  "Transferencia": "id:btn-TRANSFERÊNCIA",
+  "Numero da conta": "xpath://*[@id=\"__next\"]/div/div[3]/form/div[1]/div[1]/input",
   "Sair da conta": "xpath://*[@class=\"home__ContainerLink-sc-1auj767-2 cCGrzy\"]"
 }

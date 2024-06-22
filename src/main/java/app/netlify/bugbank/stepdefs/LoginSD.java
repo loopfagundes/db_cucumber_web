@@ -28,6 +28,11 @@ public class LoginSD {
 
     @Então("Valido se {string} esta na tela de login")
     public void my_name_in_login(String locator) throws Exception {
-        new Element(locator).assertEquals("Olá User_1,"); // <--- TENTAR FLEXIVEL
+        new Element(locator).assertEquals("Olá User_1,");
+    }
+
+    @Então("Preencho o {string}")
+    public void numeber_account(String locator) throws Exception {
+        new Element(locator).getData("dataUser_2","conta");
     }
 }

@@ -33,5 +33,7 @@ Funcionalidade: Cadastrar duas contas com saldos.
     E Clico no botão "Acessar o meu login"
     E Valido se "Meu nome" esta na tela de login
     E Valido se "Saldo em conta" esta disponivel
+    E Clico no botão "Transferencia"
+    E Preencho o "Numero da conta"
     # <--- continua fazer a transferir antes de sair da conta --->
-    Então Clico no botão "Sair da conta"
+    #Então Clico no botão "Sair da conta"
