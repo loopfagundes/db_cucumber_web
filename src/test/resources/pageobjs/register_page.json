@@ -6,5 +6,12 @@
   "Confirmação senha": "xpath://input[@name='passwordConfirmation']",
   "Conta com saldo": "id:toggleAddBalance",
   "Cadastrar": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/button",
-  "Fechar": "id:btnCloseModal"
+  "Fechar": "id:btnCloseModal",
+
+  "E-mail de Login": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[1]/form/div[1]/input",
+  "Senha de login": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[1]/form/div[2]/div/input",
+  "Acessar o meu login": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[1]/form/div[3]/button[1]",
+  "Saldo em conta": "id:textBalance",
+  "Meu nome": "id:textName",
+  "Sair da conta": "xpath://*[@class=\"home__ContainerLink-sc-1auj767-2 cCGrzy\"]"
 }

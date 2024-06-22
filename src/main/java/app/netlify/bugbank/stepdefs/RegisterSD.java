@@ -7,14 +7,14 @@ import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
-public class RegisterUserSD {
+public class RegisterSD {
 
     @Então("Preencho E-mail do usuario no campo de {string}")
     public void to_fill_in_email(String locator) throws Exception {
         new Element(locator).text(StorageSpace.getData("dataUser_1", "email"));
     }
 
-    @Então("Preencho o nome do usuario no campo de {string}")
+    @Então("Preencho o meu nome no campo de {string}")
     public void to_fill_in_name(String locator) throws Exception {
         new Element(locator).text(StorageSpace.getData("dataUser_1", "name"));
     }
@@ -28,6 +28,10 @@ public class RegisterUserSD {
     @Então("Armazeno o numero da conta do usuario")
     public void variable_storage() throws IOException, ParseException {
         StorageSpace.ignoreTheLetters("id:modalText", "dataUser_1", "numberAccount", "digit");
-        //StorageSpace.dataHolder("id:modalText", "getData");
+    }
+
+    //continuo mais tarde!
+    public void test(String locator) throws Exception {
+        new Element(locator).getData("dataUser_1", "email");
     }
 }

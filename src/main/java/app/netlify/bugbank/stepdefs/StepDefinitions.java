@@ -21,4 +21,9 @@ public class StepDefinitions {
     public void eu_preencho(String text, String locator) throws Exception {
         new Element(locator).text(text);
     }
+
+    @Então("Clico no botao {string}")
+    public void eu_clico_js(String locator) throws Exception {
+        new Element(locator).jsClick();
+    }
 }

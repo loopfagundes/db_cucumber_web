@@ -1,11 +1,13 @@
 package app.netlify.bugbank.widgets;
 
 import app.netlify.bugbank.Page;
+import app.netlify.bugbank.dataset.StorageSpace;
 import app.netlify.bugbank.drivers.DriverManager;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -26,16 +28,18 @@ public class Element {
     public void click() throws Exception {
         try {
             this.wait.until(ExpectedConditions.elementToBeClickable(this.by)).click();
-        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException | TimeoutException e) {
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
+                 TimeoutException e) {
             throw new Exception(e);
         }
     }
 
     public void jsClick() throws Exception {
         try {
-            JavascriptExecutor executor = (JavascriptExecutor)this.driver;
+            JavascriptExecutor executor = (JavascriptExecutor) this.driver;
             executor.executeScript("arguments[0].click();", this.locator);
-        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException | TimeoutException e) {
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
+                 TimeoutException e) {
             throw new Exception(e);
         }
     }
@@ -45,16 +49,48 @@ public class Element {
             WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
             element.clear();
             element.sendKeys(text);
-        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException | TimeoutException e) {
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
+                 TimeoutException e) {
             throw new Exception(e);
         }
     }
 
-    public void getText() throws Exception {
+    public void assertEquals(String expected) throws Exception {
         try {
             WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
             element.getText();
-        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException | TimeoutException e) {
+            Assert.assertEquals(element.getText(), expected);
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
+                 TimeoutException e) {
+            throw new Exception(e);
+        }
+    }
+
+    /* Deixo aqui varias os metodos de aqui somente
+       para teste como são:
+       - viewText ver a mensagem antes de AssertEquals.
+       - testSet ver se funciona com flexivel.
+     * Se for um dos metodos funcionado e deixar o metodo como padrão.
+     * Quando terminar do projeto e tem que
+       apagar aqui metodo!
+     */
+    public void viewText() throws Exception {
+        try {
+            WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
+            System.out.println("Message: " + element.getText());
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
+                 TimeoutException e) {
+            throw new Exception(e);
+        }
+    }
+
+    public void getData(String nameProp, String key) throws Exception {
+        try {
+            WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
+            String txt = StorageSpace.getData(nameProp, key);
+            element.sendKeys(txt);
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
+                 TimeoutException e) {
             throw new Exception(e);
         }
     }
