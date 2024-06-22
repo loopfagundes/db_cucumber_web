@@ -47,7 +47,6 @@ public class Page {
         if (locator.contains(":")) {
             return Page.elementLocated(locator);
         }
-
         return Page.elementLocated(Page.getSelector(locator));
     }
 
@@ -58,7 +57,6 @@ public class Page {
 
     public static By selector(String element) {
         String locateStrategy = "", selector = "";
-
         if (element.contains(":")) {
             String[] elementSplit = element.split(":");
 
@@ -70,7 +68,6 @@ public class Page {
             locateStrategy = elementSplit[0].trim();
             selector = elementSplit[1].trim();
         }
-
         return Page.getLocator(locateStrategy, selector);
     }
 

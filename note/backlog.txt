@@ -38,20 +38,19 @@ RESOLVER O PROBLEMA:
 
 4. [] Classe TestRunner, quando executei o teste foi primeiro login_test e depois register.
     Quero que ordem primeiro register e depois login.
-    - Pode ser imports os features para dentro classe de TestRunner.
 
     ✔ COMO RESOLVEU?
 
     TEM COMO A MELHOR ESTRUTURA?
-
+    - Pode ser imports os features para dentro classe de TestRunner.
 
 5. [✔] Como usar Assert? Ja executei para testar, porem foi ignorou o valor e dando error."
 
     ✔ COMO RESOLVEU?
-    -Criei um metodo de AsssertEquals no dentro da classe Element.
-    -Criei um metodo de viewText antes de AssertEquals no dentro do Element.
+    - Criei um metodo de AsssertEquals no dentro da classe Element.
+    - Criei um metodo de viewText antes de AssertEquals no dentro do Element.
 
     TEM COMO A MELHOR ESTRUTURA?
     - Tentar mais flexivel no String.
     - Nao precisa mais criar cada metodo como duvido numero 1.
-    - Possivel a variavel de elementToBeClickable para visibilityOf.
+    ✔ Possivel a variavel de elementToBeClickable para visibilityOf.

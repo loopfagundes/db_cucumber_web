@@ -9,29 +9,46 @@ import java.io.IOException;
 
 public class RegisterSD {
 
-    @Então("Preencho E-mail do usuario no campo de {string}")
+    @Então("Preencho o meu E-mail no campo de {string}")
     public void to_fill_in_email(String locator) throws Exception {
-        new Element(locator).text(StorageSpace.getData("dataUser_1", "email"));
+        new Element(locator).getData("dataUser_1", "email");
     }
 
     @Então("Preencho o meu nome no campo de {string}")
     public void to_fill_in_name(String locator) throws Exception {
-        new Element(locator).text(StorageSpace.getData("dataUser_1", "name"));
+        new Element(locator).getData("dataUser_1", "name");
     }
 
-    @Então("Preencho a senha do usuario no campo de {string}")
-    @Então("Preencho a senha novamente do usuario no campo {string}")
+    @Então("Preencho a minha senha no campo de {string}")
+    @Então("Preencho a minha senha novamente no campo {string}")
     public void to_fill_in_password(String locator) throws Exception {
-        new Element(locator).text(StorageSpace.getData("dataUser_1", "password"));
+        new Element(locator).getData("dataUser_1", "password");
+    }
+
+    @Então("Armazeno o Numero da conta")
+    public void variable_storage() throws IOException, ParseException {
+        StorageSpace.ignoreTheLetters("id:modalText", "dataUser_1", "numberAccount", "digit");
+        //new Element(locator).setData("dataUser_1", "numberAccount", "digit");
+    }
+
+    @Então("Preencho o {string} no campo de email")
+    public void to_fill_in_email2(String locator) throws Exception {
+        new Element(locator).getData("dataUser_2", "email");
+    }
+
+    @Então("Preencho o {string} no campo de nome")
+    public void to_fill_in_name2(String locator) throws Exception {
+        new Element(locator).getData("dataUser_2", "name");
+    }
+
+    @Então("Preencho a {string} no campo")
+    @Então("Preencho a {string} novamente no campo")
+    public void to_fill_in_password2(String locator) throws Exception {
+        new Element(locator).getData("dataUser_2", "password");
     }
 
     @Então("Armazeno o numero da conta do usuario")
-    public void variable_storage() throws IOException, ParseException {
-        StorageSpace.ignoreTheLetters("id:modalText", "dataUser_1", "numberAccount", "digit");
-    }
-
-    //continuo mais tarde!
-    public void test(String locator) throws Exception {
-        new Element(locator).getData("dataUser_1", "email");
+    public void variable_storage2() throws IOException, ParseException {
+        StorageSpace.ignoreTheLetters("id:modalText", "dataUser_2", "conta", "digita");
     }
 }
