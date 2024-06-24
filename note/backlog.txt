@@ -41,7 +41,7 @@ RESOLVER O PROBLEMA:
 
     ✔ COMO RESOLVEU?
     - Por causa de sessão, já resolvi o problema dentro da classe de Hooks
-    - Apaguei o metodo Atfer no Hooks e criei um metodo de Atfer no TestRunner se quiser executar todos testes como suite.
+    - Apaguei o metodo Driver.quit no Hooks e criei um metodo de Atfer no TestRunner se quiser executar todos testes como suite.
 
     TEM COMO A MELHOR ESTRUTURA?
     ✔ Para encerrar o teste. É bom dentro feature mais flexivel o teste.
