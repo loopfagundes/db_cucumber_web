@@ -68,5 +68,5 @@ RESOLVER O PROBLEMA:
     ✔ Tentar mais flexivel no String.
     ✔ Nao precisa mais criar cada metodo como duvido numero 1.
     ✔ Possivel trocar a variavel de elementToBeClickable para visibilityOf.
-        O que é elementToBeClickable?
-        O que é visibilityOf?
+        O que é elementToBeClickable? O elemento tem que ser clicavel
+        O que é visibilityOf? É visibilidade de elementos
