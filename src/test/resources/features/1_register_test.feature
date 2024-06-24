@@ -1,39 +1,29 @@
 #language: pt
-
+#order: 1
 @register_page
 Funcionalidade: Cadastrar duas contas com saldos.
-                Realizar Transferência entre Conta.
 
-  Cenário: Faço cadastro conta com saldo no BugBank
+  Cenário: Faço cadastro um primeiro usuario no BugBank
     Dado Navego para "https://bugbank.netlify.app/"
     Quando Clico no botão "Registrar"
-    Então Preencho o meu E-mail no campo de "E-mail"
-    E Preencho o meu nome no campo de "Nome"
-    E Preencho a minha senha no campo de "Senha"
-    E Preencho a minha senha novamente no campo "Confirmação senha"
-    E Clico no botao "Conta com saldo"
-    E Clico no botão "Cadastrar"
-    E Armazeno o Numero da conta
+    Então Preencho o campo "email" do usuário "dataUser_1"
+    Então Preencho o campo "nome" do usuário "dataUser_1"
+    Então Preencho o campo "senha" do usuário "dataUser_1"
+    Então Preencho o campo "confirmar_senha" do usuário "dataUser_1"
+    E Clico no botão "Conta com saldo" com javascript
+    E Clico no botão "Cadastrar" com javascript
+    E Armazeno o "Numero da conta", dados "dataUser_1", "conta" e "digito"
     Então Clico no botão "Fechar o modal"
 
-    #Registrar segundo usuario
+  @register_page
+  Cenário: Faço cadastro um segundo usuario no BugBank
+    Dado Navego para "https://bugbank.netlify.app/"
     Quando Clico no botão "Registrar"
-    Então Preencho o "E-mail" no campo de email
-    E Preencho o "Nome" no campo de nome
-    E Preencho a "Senha" no campo
-    E Preencho a "Confirmação senha" novamente no campo
-    E Clico no botao "Conta com saldo"
-    E Clico no botão "Cadastrar"
-    E Armazeno o numero da conta do usuario
+    Então Preencho o campo "email" do usuário "dataUser_2"
+    Então Preencho o campo "nome" do usuário "dataUser_2"
+    Então Preencho o campo "senha" do usuário "dataUser_2"
+    Então Preencho o campo "confirmar_senha" do usuário "dataUser_2"
+    E Clico no botão "Conta com saldo" com javascript
+    E Clico no botão "Cadastrar" com javascript
+    E Armazeno o "Numero da conta", dados "dataUser_2", "conta" e "digito"
     Então Clico no botão "Fechar o modal"
-
-    #Tela de Login
-    Quando Preencho Email no campo de "E-mail de Login"
-    E Preencho senha no campo de "Senha de login"
-    E Clico no botão "Acessar o meu login"
-    E Valido se "Meu nome" esta na tela de login
-    E Valido se "Saldo em conta" esta disponivel
-    E Clico no botão "Transferencia"
-    E Preencho o "Numero da conta"
-    # <--- continua fazer a transferir antes de sair da conta --->
-    #Então Clico no botão "Sair da conta"

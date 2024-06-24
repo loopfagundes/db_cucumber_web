@@ -59,12 +59,10 @@ public class Page {
         String locateStrategy = "", selector = "";
         if (element.contains(":")) {
             String[] elementSplit = element.split(":");
-
             if (elementSplit.length != 2) {
                 throw new IllegalStateException(
                         String.format("Locator definition does not had 2 elements for %s locator", element));
             }
-
             locateStrategy = elementSplit[0].trim();
             selector = elementSplit[1].trim();
         }

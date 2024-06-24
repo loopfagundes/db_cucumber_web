@@ -1,8 +1,7 @@
 package app.netlify.bugbank.widgets;
 
 import app.netlify.bugbank.Page;
-import app.netlify.bugbank.dataset.FilesOperation;
-import app.netlify.bugbank.dataset.StorageSpace;
+import app.netlify.bugbank.files.FilesOperation;
 import app.netlify.bugbank.drivers.DriverManager;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.*;
@@ -45,7 +44,7 @@ public class Element {
         }
     }
 
-    public void text(String text) throws Exception {
+    public void clear_and_text(String text) throws Exception {
         try {
             WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
             element.clear();
@@ -56,10 +55,19 @@ public class Element {
         }
     }
 
+    public void text(String text) throws Exception {
+        try {
+            WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
+            element.sendKeys(text);
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
+                 TimeoutException e) {
+            throw new Exception(e);
+        }
+    }
+
     public void assertEquals(String expected) throws Exception {
         try {
             WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
-            element.getText();
             Assert.assertEquals(element.getText(), expected);
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
                  TimeoutException e) {
@@ -77,7 +85,7 @@ public class Element {
      */
     public void viewText() throws Exception {
         try {
-            WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
+            WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
             System.out.println("Message: " + element.getText());
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
                  TimeoutException e) {
@@ -88,7 +96,7 @@ public class Element {
     public void getData(String nameProp, String key) throws Exception {
         try {
             WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
-            String getProp = StorageSpace.getData(nameProp, key);
+            String getProp = FilesOperation.getProperties(nameProp).getProperty(key);
             element.clear();
             element.sendKeys(getProp);
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |

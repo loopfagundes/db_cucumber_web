@@ -17,8 +17,12 @@ public class Hooks {
                         + "SCENARIO NAME: " + scenario.getName());
 
         Page.setPage(scenario.getSourceTagNames());
-        DriverManager.setDriver(DriverFactory.createInstance());
-        ScenarioManager.setScenario(scenario);
+        if (DriverManager.getDriver() == null) {
+            DriverManager.setDriver(DriverFactory.createInstance());
+        }
+        if (ScenarioManager.getScenario() == null) {
+            ScenarioManager.setScenario(scenario);
+        }
     }
 
     @After
@@ -26,15 +30,15 @@ public class Hooks {
         System.out.println(
                 "AFTER: THREAD ID : " + Thread.currentThread().getId() + ","
                         + "SCENARIO NAME: " + scenario.getName());
+
         if (scenario.isFailed()) {
             byte[] screenshot = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
             ScenarioManager.getScenario().attach(screenshot, "image/png", ScenarioManager.getScenario().getName());
         }
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        DriverManager.quit();
     }
 }

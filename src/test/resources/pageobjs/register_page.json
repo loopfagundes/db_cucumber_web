@@ -1,19 +1,11 @@
 {
   "Registrar": "xpath://button[text()='Registrar']",
-  "E-mail": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[2]/input",
-  "Nome":"xpath://input[@type='name']",
-  "Senha": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[4]/div/input",
-  "Confirmação senha": "xpath://input[@name='passwordConfirmation']",
+  "email": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[2]/input",
+  "nome":"xpath://input[@type='name']",
+  "senha": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/div[4]/div/input",
+  "confirmar_senha": "xpath://input[@name='passwordConfirmation']",
   "Conta com saldo": "id:toggleAddBalance",
   "Cadastrar": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[2]/form/button",
-  "Fechar o modal": "id:btnCloseModal",
-
-  "E-mail de Login": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[1]/form/div[1]/input",
-  "Senha de login": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[1]/form/div[2]/div/input",
-  "Acessar o meu login": "xpath://*[@id=\"__next\"]/div/div[2]/div/div[1]/form/div[3]/button[1]",
-  "Saldo em conta": "id:textBalance",
-  "Meu nome": "id:textName",
-  "Transferencia": "id:btn-TRANSFERÊNCIA",
-  "Numero da conta": "xpath://*[@id=\"__next\"]/div/div[3]/form/div[1]/div[1]/input",
-  "Sair da conta": "xpath://*[@class=\"home__ContainerLink-sc-1auj767-2 cCGrzy\"]"
+  "Numero da conta": "id:modalText",
+  "Fechar o modal": "id:btnCloseModal"
 }
