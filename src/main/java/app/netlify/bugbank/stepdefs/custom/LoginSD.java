@@ -2,9 +2,6 @@ package app.netlify.bugbank.stepdefs.custom;
 
 import app.netlify.bugbank.widgets.Element;
 import io.cucumber.java.pt.Então;
-import org.json.simple.parser.ParseException;
-
-import java.io.IOException;
 
 public class LoginSD {
 
@@ -13,9 +10,9 @@ public class LoginSD {
         new Element(locator).assertEquals("Olá User_1,");
     }
 
-    @Então("Valido se {string} esta disponivel")
-    public void balance_account(String locator) throws Exception {
-        new Element(locator).assertEquals("Saldo em conta R$ 1.000,00");
+    @Então("Armazeno as informações do saldo do {string} e valido se {string}")
+    public void validate_the_balance(String dados, String locator) throws Exception {
+        new Element(locator).setData(dados, locator);
     }
 
     @Então("Informo do {string} e preencho o {string} para fazer {string}")

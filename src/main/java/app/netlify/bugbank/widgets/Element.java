@@ -106,7 +106,13 @@ public class Element {
         }
     }
 
-    public void setData(String nameProp, String number, String digit) throws IOException {
+    public void setData(String nameProp, String value ) throws IOException {
+        WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
+        FilesOperation.setProperty(nameProp, value, element.getText());
+        Assert.assertEquals(element.getText(), FilesOperation.getProperties(nameProp).getProperty(value));
+    }
+
+    public void setAccountNumber(String nameProp, String number, String digit) throws IOException {
         WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
         String[] separator = element.getText().split("-");
         String justNumber = separator[0].replaceAll("[^0-9]", "");
