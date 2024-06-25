@@ -45,49 +45,10 @@ public class Element {
         }
     }
 
-    public void clear_and_text(String text) throws Exception {
-        try {
-            WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
-            element.clear();
-            element.sendKeys(text);
-        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
-                 TimeoutException e) {
-            throw new Exception(e);
-        }
-    }
-
-    public void text(String text) throws Exception {
-        try {
-            WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
-            element.sendKeys(text);
-        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
-                 TimeoutException e) {
-            throw new Exception(e);
-        }
-    }
-
     public void assertEquals(String expected) throws Exception {
         try {
             WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
             Assert.assertEquals(element.getText(), expected);
-        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
-                 TimeoutException e) {
-            throw new Exception(e);
-        }
-    }
-
-    /* Deixo aqui varias os metodos de aqui somente
-       para teste como são:
-       - viewText ver a mensagem antes de AssertEquals.
-       - testSet ver se funciona com flexivel.
-     * Se for um dos metodos funcionado e deixar o metodo como padrão.
-     * Quando terminar do projeto e tem que
-       apagar aqui metodo!
-     */
-    public void viewText() throws Exception {
-        try {
-            WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
-            System.out.println("Message: " + element.getText());
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
                  TimeoutException e) {
             throw new Exception(e);
@@ -106,7 +67,14 @@ public class Element {
         }
     }
 
-    public void setData(String nameProp, String number, String digit) throws IOException {
+    public void setData(String nameProp, String value ) throws IOException {
+        WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
+        String replacement = element.getText().replace("á", "a");
+        FilesOperation.setProperty(nameProp, value, replacement);
+        Assert.assertEquals(replacement, FilesOperation.getProperties(nameProp).getProperty(value));
+    }
+
+    public void setAccountNumber(String nameProp, String number, String digit) throws IOException {
         WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
         String[] separator = element.getText().split("-");
         String justNumber = separator[0].replaceAll("[^0-9]", "");

@@ -10,7 +10,7 @@ public class RegisterSD {
 
     @Então("Armazeno o {string}, dados {string}, {string} e {string}")
     public void variable_storage(String locator, String dados, String conta, String digito) throws IOException, ParseException {
-        new Element(locator).setData(dados, conta, digito);
+        new Element(locator).setAccountNumber(dados, conta, digito);
     }
 
     @Então("Clico no botão {string} com javascript")
