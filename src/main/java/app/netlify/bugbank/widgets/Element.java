@@ -1,8 +1,9 @@
 package app.netlify.bugbank.widgets;
 
 import app.netlify.bugbank.Page;
-import app.netlify.bugbank.files.FilesOperation;
+import app.netlify.bugbank.utils.FilesOperation;
 import app.netlify.bugbank.drivers.DriverManager;
+import com.github.javafaker.Faker;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -112,5 +113,14 @@ public class Element {
         String justDigit = separator[1].replaceAll("[^0-9]", "");
         FilesOperation.setProperty(nameProp, number, justNumber);
         FilesOperation.setProperty(nameProp, digit, justDigit);
+    }
+
+    public void fakeValue(String nameProp, String key) throws IOException {
+        WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
+        String fakeCash = Faker.instance().number().digits(Integer.parseInt("3"));
+        String fakeCent = Faker.instance().number().digits(Integer.parseInt("2"));
+        String fakeValue = fakeCash + "." + fakeCent;
+        element.sendKeys(fakeValue);
+        FilesOperation.setProperty(nameProp, key, fakeValue);
     }
 }
