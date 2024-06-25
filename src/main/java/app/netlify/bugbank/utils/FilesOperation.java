@@ -18,10 +18,8 @@ public class FilesOperation {
             + File.separator;
 
     public static Properties getProperties(String name) throws IOException {
-
         InputStream inputStream = null;
         Properties prop = new Properties();
-
         try {
             File file = new File(DIR_PATH_PROPERTIES + name + ".properties");
             inputStream = Files.newInputStream(file.toPath());
@@ -43,7 +41,6 @@ public class FilesOperation {
 
     private static void saveProperties(String name, Properties properties) throws IOException {
         OutputStream outputStream = null;
-
         try {
             File file = new File(DIR_PATH_PROPERTIES + name + ".properties");
             outputStream = Files.newOutputStream(file.toPath());

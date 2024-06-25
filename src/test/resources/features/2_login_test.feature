@@ -1,10 +1,10 @@
 #language: pt
 #order: 2
 @login_page
-Funcionalidade: Login
+Funcionalidade: Efetura Login e realizada a transferencia para outro usuario.
 
-  Cenário: Efetura login e Realizar a transferencia
-    Dado Navego para "https://bugbank.netlify.app/"
+  Cenário: Acessar no login do usuario e realizar a transferencia
+    Dado Navego para a "BugBank" configurada
     Quando Preencho o campo "email" do usuário "dataUser_1"
     E Preencho o campo "senha" do usuário "dataUser_1"
     E Clico no botão "Acessar login"
