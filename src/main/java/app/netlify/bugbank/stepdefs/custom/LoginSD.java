@@ -2,6 +2,9 @@ package app.netlify.bugbank.stepdefs.custom;
 
 import app.netlify.bugbank.widgets.Element;
 import io.cucumber.java.pt.Então;
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
 
 public class LoginSD {
 
@@ -18,5 +21,10 @@ public class LoginSD {
     @Então("Informo do {string} e preencho o {string} para fazer {string}")
     public void transfer_value(String dados, String valor, String locator) throws Exception {
         new Element(locator).fakeValue(dados, valor);
+    }
+
+    @Então("Preencho informar uma {string} no campo")
+    public void description(String locator) throws Exception {
+        new Element(locator).text("test");
     }
 }
