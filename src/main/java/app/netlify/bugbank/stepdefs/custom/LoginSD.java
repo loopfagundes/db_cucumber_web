@@ -23,8 +23,8 @@ public class LoginSD {
         new Element(locator).fakeValue(dados, valor);
     }
 
-    @Então("Preencho informar uma {string} no campo")
-    public void description(String locator) throws Exception {
-        new Element(locator).text("test");
+    @Então("Valido se a {string}")
+    public void transfer_completed_successfully(String locator) throws Exception {
+        new Element(locator).assertEquals("Transferencia realizada com sucesso");
     }
 }

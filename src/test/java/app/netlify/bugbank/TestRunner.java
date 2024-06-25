@@ -24,6 +24,6 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 
     @AfterSuite
     public static void tearDown() {
-        //DriverManager.quit();
+        DriverManager.quit();
     }
 }

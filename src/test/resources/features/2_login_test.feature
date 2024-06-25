@@ -14,7 +14,8 @@ Funcionalidade: Login
     E Preencho o campo "conta" do usuário "dataUser_2"
     E Preencho o campo "digito" do usuário "dataUser_2"
     E Informo do "dataUser_1" e preencho o "valor" para fazer "a transferencia"
-    E Preencho informar uma "Descrição" no campo
+    E Preencho o campo "descricao" do usuário "dataUser_1"
     E Clico no botão "Transferir agora"
+    E Valido se a "Transferencia realizada com sucesso"
 #    Então Clico no botão "Sair da conta"
     Então Encerro a sessão
