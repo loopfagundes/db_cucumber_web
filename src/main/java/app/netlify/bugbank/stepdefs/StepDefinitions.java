@@ -1,7 +1,6 @@
 package app.netlify.bugbank.stepdefs;
 
 import app.netlify.bugbank.drivers.DriverManager;
-import app.netlify.bugbank.utils.FilesOperation;
 import app.netlify.bugbank.widgets.Element;
 import io.cucumber.java.pt.Então;
 
