@@ -5,13 +5,8 @@ import io.cucumber.java.pt.Então;
 
 public class LoginSD {
 
-    @Então("Valido se {string} esta na tela de login")
-    public void my_name_in_login(String locator) throws Exception {
-        new Element(locator).assertEquals("Olá User_1,");
-    }
-
-    @Então("Armazeno as informações do saldo do {string} e valido se {string}")
-    public void validate_the_balance(String dados, String locator) throws Exception {
+    @Então("Armazeno as informações do {string} e valido se {string}")
+    public void data_storage(String dados, String locator) throws Exception {
         new Element(locator).setData(dados, locator);
     }
 

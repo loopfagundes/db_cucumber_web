@@ -3,7 +3,7 @@
   "senha": "xpath://*[@id='__next']/div/div[2]/div/div[1]/form/div[2]/div/input",
   "Acessar login": "xpath://*[@id='__next']/div/div[2]/div/div[1]/form/div[3]/button[1]",
   "saldo_de_abertura_na_conta": "id:textBalance",
-  "Nome do usuario": "id:textName",
+  "nome_do_usuario_na_tela_de_login": "id:textName",
   "Transferencia": "id:btn-TRANSFERÊNCIA",
   "conta": "xpath://*[@id='__next']/div/div[3]/form/div[1]/div[1]/input",
   "digito": "xpath://input[@type='digit']",
@@ -14,6 +14,5 @@
   "Fechar o modal": "id:btnCloseModal",
   "Voltar o meu login": "id:btnBack",
   "resto_saldo_em_conta": "id:textBalance",
-
   "Sair da conta": "xpath://*[@class='home__ContainerLink-sc-1auj767-2 cCGrzy']"
 }
