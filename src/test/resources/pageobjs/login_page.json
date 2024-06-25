@@ -6,5 +6,7 @@
   "Meu nome": "id:textName",
   "Transferencia": "id:btn-TRANSFERÊNCIA",
   "conta": "xpath://*[@id=\"__next\"]/div/div[3]/form/div[1]/div[1]/input",
+  "digito": "xpath://input[@type='digit']",
+  "a transferencia": "xpath://input[@type='transferValue']",
   "Sair da conta": "xpath://*[@class=\"home__ContainerLink-sc-1auj767-2 cCGrzy\"]"
 }

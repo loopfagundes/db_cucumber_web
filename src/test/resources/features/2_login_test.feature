@@ -12,5 +12,7 @@ Funcionalidade: Login
     E Valido se "Saldo em conta" esta disponivel
     E Clico no botão "Transferencia"
     E Preencho o campo "conta" do usuário "dataUser_2"
+    E Preencho o campo "digito" do usuário "dataUser_2"
+    E Informo do "dataUser_1" e preencho o "valor" para fazer "a transferencia"
 #    Então Clico no botão "Sair da conta"
     Então Encerro a sessão

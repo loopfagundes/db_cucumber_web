@@ -1,4 +1,4 @@
-package app.netlify.bugbank.files;
+package app.netlify.bugbank.utils;
 
 import java.io.*;
 import java.nio.file.Files;
