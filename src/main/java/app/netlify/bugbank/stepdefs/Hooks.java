@@ -14,7 +14,7 @@ public class Hooks {
 
     @Before
     public void beforeTest(Scenario scenario) {
-        System.out.println("BEFORE: THREAD ID : " + Thread.currentThread().getId() + ","
+        Log.log_INFO("BEFORE: THREAD ID : " + Thread.currentThread().getId() + ","
                 + "SCENARIO NAME: " + scenario.getName());
 
         Page.setPage(scenario.getSourceTagNames());
