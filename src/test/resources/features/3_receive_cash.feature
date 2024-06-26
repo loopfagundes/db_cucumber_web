@@ -1,9 +1,9 @@
 #language: pt
 #order: 3
   @login_page
-  Funcionalidade: Efetura login e Receber o saldo de transferencia
+  Funcionalidade: Efetura login e a Receber o saldo de transferencia
 
-    Cenário: Acesso no login e validar extrato se receber o saldo.
+    Cenário: Acesso no login e validar o extrato bancário se a receber saldo.
       Dado Navego para a "BugBank" configurada
       Quando Preencho o campo "email" do usuário "dataUser_2"
       E Preencho o campo "senha" do usuário "dataUser_2"
