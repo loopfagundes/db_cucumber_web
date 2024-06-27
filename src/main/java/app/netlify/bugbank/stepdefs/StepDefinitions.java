@@ -27,12 +27,12 @@ public class StepDefinitions {
     }
 
     @Então("Armazeno o nome do {string} e valido se {string}")
-    public void dataName(String dados, String locator) throws Exception {
+    public void data_name(String dados, String locator) throws Exception {
         new Element(locator).setName(dados, locator);
     }
 
     @Então("Armazeno o valor do {string} e valido se {string}")
-    public void dataValue(String dados, String locator) throws Exception {
+    public void data_value(String dados, String locator) throws Exception {
         new Element(locator).setValue(dados, locator);
     }
 

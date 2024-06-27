@@ -67,34 +67,54 @@ public class Element {
         }
     }
 
-    public void setName(String nameProp, String value ) throws IOException {
-        WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
-        String replacement = element.getText().replace("á", "a");
-        FilesOperation.setProperty(nameProp, value, replacement);
-        Assert.assertEquals(replacement, FilesOperation.getProperties(nameProp).getProperty(value));
+    public void setName(String nameProp, String value) throws Exception {
+        try {
+            WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
+            String replacement = element.getText().replace("á", "a");
+            FilesOperation.setProperty(nameProp, value, replacement);
+            Assert.assertEquals(replacement, FilesOperation.getProperties(nameProp).getProperty(value));
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
+                 TimeoutException e) {
+            throw new Exception(e);
+        }
     }
 
-    public void setValue(String nameProp, String value ) throws IOException {
-        WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
-        FilesOperation.setProperty(nameProp, value, element.getText());
-        Assert.assertEquals(element.getText(), FilesOperation.getProperties(nameProp).getProperty(value));
+    public void setValue(String nameProp, String value) throws Exception {
+        try {
+            WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
+            FilesOperation.setProperty(nameProp, value, element.getText());
+            Assert.assertEquals(element.getText(), FilesOperation.getProperties(nameProp).getProperty(value));
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
+                 TimeoutException e) {
+            throw new Exception(e);
+        }
     }
 
-    public void setAccountNumber(String nameProp, String number, String digit) throws IOException {
-        WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
-        String[] separator = element.getText().split("-");
-        String justNumber = separator[0].replaceAll("[^0-9]", "");
-        String justDigit = separator[1].replaceAll("[^0-9]", "");
-        FilesOperation.setProperty(nameProp, number, justNumber);
-        FilesOperation.setProperty(nameProp, digit, justDigit);
+    public void setAccountNumber(String nameProp, String number, String digit) throws Exception {
+        try {
+            WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
+            String[] separator = element.getText().split("-");
+            String justNumber = separator[0].replaceAll("[^0-9]", "");
+            String justDigit = separator[1].replaceAll("[^0-9]", "");
+            FilesOperation.setProperty(nameProp, number, justNumber);
+            FilesOperation.setProperty(nameProp, digit, justDigit);
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
+                 TimeoutException e) {
+            throw new Exception(e);
+        }
     }
 
-    public void fakeValue(String nameProp, String key) throws IOException {
-        WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
-        String fakeCash = Faker.instance().number().digits(Integer.parseInt("3"));
-        String fakeCent = Faker.instance().number().digits(Integer.parseInt("2"));
-        String fakeValue = fakeCash + "." + fakeCent;
-        element.sendKeys(fakeValue);
-        FilesOperation.setProperty(nameProp, key, fakeValue);
+    public void fakeValue(String nameProp, String key) throws Exception {
+        try {
+            WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
+            String fakeCash = Faker.instance().number().digits(Integer.parseInt("3"));
+            String fakeCent = Faker.instance().number().digits(Integer.parseInt("2"));
+            String fakeValue = fakeCash + "." + fakeCent;
+            element.sendKeys(fakeValue);
+            FilesOperation.setProperty(nameProp, key, fakeValue);
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
+                 TimeoutException e) {
+            throw new Exception(e);
+        }
     }
 }
