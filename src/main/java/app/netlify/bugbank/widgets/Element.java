@@ -67,11 +67,17 @@ public class Element {
         }
     }
 
-    public void setData(String nameProp, String value ) throws IOException {
+    public void setName(String nameProp, String value ) throws IOException {
         WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
         String replacement = element.getText().replace("á", "a");
         FilesOperation.setProperty(nameProp, value, replacement);
         Assert.assertEquals(replacement, FilesOperation.getProperties(nameProp).getProperty(value));
+    }
+
+    public void setValue(String nameProp, String value ) throws IOException {
+        WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
+        FilesOperation.setProperty(nameProp, value, element.getText());
+        Assert.assertEquals(element.getText(), FilesOperation.getProperties(nameProp).getProperty(value));
     }
 
     public void setAccountNumber(String nameProp, String number, String digit) throws IOException {

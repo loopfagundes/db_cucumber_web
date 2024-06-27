@@ -26,9 +26,14 @@ public class StepDefinitions {
         new Element(locator).click();
     }
 
-    @Então("Armazeno as informações do {string} e valido se {string}")
-    public void data_storage(String dados, String locator) throws Exception {
-        new Element(locator).setData(dados, locator);
+    @Então("Armazeno o nome do {string} e valido se {string}")
+    public void dataName(String dados, String locator) throws Exception {
+        new Element(locator).setName(dados, locator);
+    }
+
+    @Então("Armazeno o valor do {string} e valido se {string}")
+    public void dataValue(String dados, String locator) throws Exception {
+        new Element(locator).setValue(dados, locator);
     }
 
     @Então("Encerro a sessão")
