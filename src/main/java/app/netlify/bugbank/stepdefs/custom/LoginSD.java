@@ -5,7 +5,7 @@ import io.cucumber.java.pt.Então;
 
 public class LoginSD {
 
-    @Então("Informo do {string} e preencho o {string} para fazer {string}")
+    @Então("Informo do {string} e preencho o {string} no campo {string}")
     public void transfer_value(String dados, String valor, String locator) throws Exception {
         new Element(locator).fakeValue(dados, valor);
     }
