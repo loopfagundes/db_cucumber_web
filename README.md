@@ -68,24 +68,24 @@ git clone https://github.com/loopfagundes/db_cucumber_web
 #### Executando o Projeto:
 Para executar na sua máquina local e através de sua IDE:
 
-```bash  
+```
 src/test/java/app.netlify.bugbank/TestRunner.class  
 ```  
 Quando executar o teste, o padrão navegador Chrome será aberto automaticamente.
 
 Para executar no Firefox ou Edge,  caminho para acessar pastas dentro IDE:
 
-```bash  
+```
 src/main/java/app.netlify.bugbank/drivers/DriverFactory.class 
 ```  
 
 Dentro do bloco de `Try/Catch`:
 
-```bash  
+```java  
 Driver.valueOf(System.getProperty("driver", "chrome").toUpperCase());  
 ```  
 
-Existem as opções entre aspas "chrome", "firefox" ou "edge", todas em minúsculas.
+Existem as opções entre aspas `chrome`, `firefox` ou `edge`, todas em minúsculas.
   
 ---
 #### Report:
