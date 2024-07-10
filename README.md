@@ -28,7 +28,7 @@
 
 ### Ferramentas que foi ulitizado?
 
-![](img/cucumber.png)
+![](src/test/resources/imagens/markdown/cucumber.png)
 
 
 _O projeto utiliza o Cucumber, uma ferramenta de software de código aberto utilizada para o desenvolvimento de testes automatizados baseados em comportamento (BDD - Behavior-Driven Development)._
