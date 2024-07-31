@@ -31,39 +31,53 @@ public class DriverFactory {
         switch (driver) {
             case CHROME:
                 WebDriverManager.chromedriver().setup();
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--disable-extensions");
-                chromeOptions.addArguments("--disable-infobars");
-                chromeOptions.addArguments("--disable-notifications");
-                chromeOptions.addArguments("--remote-allow-origins=*");
-                chromeOptions.addArguments("--ignored-certificates-errors");
-                if (isHeadless) {
-                    chromeOptions.addArguments("--headless");
-                }
+                ChromeOptions chromeOptions = getChromeOptions(isHeadless);
                 return new ChromeDriver(chromeOptions);
 
             case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
-                if (isHeadless) {
-                    firefoxOptions.addArguments("--headless");
-                }
-                return new FirefoxDriver(firefoxOptions);
+                return getFirefoxOptions(isHeadless);
 
             case EDGE:
                 WebDriverManager.edgedriver().setup();
-                EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments("--disable-extensions");
-                edgeOptions.addArguments("--disable-infobars");
-                edgeOptions.addArguments("--disable-notifications");
-                edgeOptions.addArguments("--remote-allow-origins=*");
-                edgeOptions.addArguments("--ignored-certificates-errors");
-                if (isHeadless) {
-                    edgeOptions.addArguments("--headless");
-                }
+                EdgeOptions edgeOptions = getEdgeOptions(isHeadless);
                 return new EdgeDriver(edgeOptions);
             default:
                 throw new IllegalArgumentException(UNSUPPORTED_BROWSER);
         }
+    }
+
+    private static ChromeOptions getChromeOptions(boolean isHeadless) {
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--disable-extensions");
+        chromeOptions.addArguments("--disable-infobars");
+        chromeOptions.addArguments("--disable-notifications");
+        chromeOptions.addArguments("--remote-allow-origins=*");
+        chromeOptions.addArguments("--ignored-certificates-errors");
+        if (isHeadless) {
+            chromeOptions.addArguments("--headless");
+        }
+        return chromeOptions;
+    }
+
+    private static FirefoxDriver getFirefoxOptions(boolean isHeadless) {
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        if (isHeadless) {
+            firefoxOptions.addArguments("--headless");
+        }
+        return new FirefoxDriver(firefoxOptions);
+    }
+
+    private static EdgeOptions getEdgeOptions(boolean isHeadless) {
+        EdgeOptions edgeOptions = new EdgeOptions();
+        edgeOptions.addArguments("--disable-extensions");
+        edgeOptions.addArguments("--disable-infobars");
+        edgeOptions.addArguments("--disable-notifications");
+        edgeOptions.addArguments("--remote-allow-origins=*");
+        edgeOptions.addArguments("--ignored-certificates-errors");
+        if (isHeadless) {
+            edgeOptions.addArguments("--headless");
+        }
+        return edgeOptions;
     }
 }

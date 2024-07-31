@@ -44,7 +44,7 @@ _O projeto utiliza o Cucumber, uma ferramenta de software de código aberto util
 
 #### Dependencias:
 
-:pushpin: [Selenium Java](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.21.0)
+:pushpin: [Selenium Java](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.22.0)
 
 :pushpin: [WebDriverManager](https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager/5.8.0)
 
