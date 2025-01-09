@@ -10,7 +10,7 @@ public class FilesOperation {
             + File.separator
             + "src"
             + File.separator
-            + "test"
+            + "main"
             + File.separator
             + "resources"
             + File.separator
@@ -28,8 +28,9 @@ public class FilesOperation {
         } catch (Exception e) {
             throw new RuntimeException("Não carregou o arquivo " + e.getMessage());
         } finally {
-            assert inputStream != null;
-            inputStream.close();
+            if (inputStream != null) {
+                inputStream.close();
+            }
         }
     }
 

@@ -10,7 +10,7 @@ Funcionalidade: Efetura Login e realizada a transferencia de saldo para outro us
     E Clico no botão "Acessar login"
     E Armazeno o nome do "dataUser_1" e valido se "nome_do_usuario_na_tela_de_login"
     E Armazeno o valor do "dataUser_1" e valido se "saldo_em_conta"
-    E Clico no botão "Transferencia"
+    E Clico no botão "Transferencia" com javascript
     E Preencho o campo "conta" do usuário "dataUser_2"
     E Preencho o campo "digito" do usuário "dataUser_2"
     E Informo do "dataUser_1" e preencho o "valor" no campo "de transferencia"
