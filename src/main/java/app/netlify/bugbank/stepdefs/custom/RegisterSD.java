@@ -6,9 +6,9 @@ import io.cucumber.java.pt.Então;
 
 public class RegisterSD {
 
-    @Então("Preencho o campo {string} com {string} do usuário")
-    public void i_fill_in(String locator, String fieldType) throws Exception {
-        UserFieldManager.fillUserField(locator, fieldType);
+    @Então("Preencho o campo {string} com {string} do usuário {string}")
+    public void i_fill_in(String locator, String fieldType, String nameProp) throws Exception {
+        UserFieldManager.fillUserField(locator, fieldType, nameProp);
     }
 
     @Então("Armazeno o {string}, dados {string}, {string} e {string}")

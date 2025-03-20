@@ -1,8 +1,6 @@
 package app.netlify.bugbank.widgets;
 
 import app.netlify.bugbank.Page;
-import app.netlify.bugbank.dto.UserDataDTO;
-import app.netlify.bugbank.dto.UserModelDTO;
 import app.netlify.bugbank.utils.FilesOperation;
 import app.netlify.bugbank.drivers.DriverManager;
 import com.github.javafaker.Faker;
@@ -57,11 +55,23 @@ public class Element {
         }
     }
 
-    public void getData(String key) throws Exception {
+    public void getDataUser(String sendKeys) throws Exception {
         try {
             WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
             element.clear();
-            element.sendKeys(key);
+            element.sendKeys(sendKeys);
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
+                 TimeoutException e) {
+            throw new Exception(e);
+        }
+    }
+
+    public void getData(String nameProp, String key) throws Exception {
+        try {
+            WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
+            String getProp = FilesOperation.loadProperties("properties", nameProp).getProperty(key);
+            element.clear();
+            element.sendKeys(getProp);
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
                  TimeoutException e) {
             throw new Exception(e);
@@ -108,8 +118,8 @@ public class Element {
     public void fakeValue(String nameProp, String key) throws Exception {
         try {
             WebElement element = this.wait.until(ExpectedConditions.elementToBeClickable(this.by));
-            String fakeCash = Faker.instance().number().digits(Integer.parseInt("3"));
-            String fakeCent = Faker.instance().number().digits(Integer.parseInt("2"));
+            int fakeCash = Faker.instance().number().numberBetween(0, 999);
+            int fakeCent = Faker.instance().number().numberBetween(0, 99);
             String fakeValue = fakeCash + "." + fakeCent;
             element.sendKeys(fakeValue);
             FilesOperation.setProperty("properties", nameProp, key, fakeValue);
@@ -118,4 +128,5 @@ public class Element {
             throw new Exception(e);
         }
     }
+
 }
