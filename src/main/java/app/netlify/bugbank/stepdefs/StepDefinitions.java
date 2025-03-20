@@ -11,7 +11,6 @@ public class StepDefinitions {
     @Então("Navego para a {string} configurada")
     public void i_go_to(String url) {
         DriverManager.getDriver().get(loadProperties("configuration","config").getProperty(url));
-        DriverManager.getDriver().manage().window().maximize();
     }
 
     @Então("Clico no botão {string}")
