@@ -33,12 +33,10 @@ public class DriverFactory {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = getChromeOptions(isHeadless);
                 return new ChromeDriver(chromeOptions);
-
             case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = getFirefoxOptions(isHeadless);
                 return new FirefoxDriver(firefoxOptions);
-
             case EDGE:
                 WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = getEdgeOptions(isHeadless);
