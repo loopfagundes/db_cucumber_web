@@ -12,11 +12,11 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 public class DriverFactory {
     public static WebDriver createInstance() {
         String UNSUPPORTED_BROWSER = "The chosen browser is not supported!";
-        Driver driver;
+        BrowserEnum browser;
         boolean isHeadless;
 
         try {
-            driver = Driver.valueOf(System.getProperty("driver", "chrome").toUpperCase());
+            browser = BrowserEnum.valueOf(System.getProperty("driver", "chrome").toUpperCase());
         } catch (IllegalArgumentException error) {
             throw new IllegalArgumentException(UNSUPPORTED_BROWSER);
         }
@@ -28,16 +28,15 @@ public class DriverFactory {
             throw new IllegalArgumentException("The headless argument only receives true or false!");
         }
 
-        switch (driver) {
+        switch (browser) {
             case CHROME:
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = getChromeOptions(isHeadless);
                 return new ChromeDriver(chromeOptions);
-
             case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
-                return getFirefoxOptions(isHeadless);
-
+                FirefoxOptions firefoxOptions = getFirefoxOptions(isHeadless);
+                return new FirefoxDriver(firefoxOptions);
             case EDGE:
                 WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = getEdgeOptions(isHeadless);
@@ -49,6 +48,9 @@ public class DriverFactory {
 
     private static ChromeOptions getChromeOptions(boolean isHeadless) {
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--start-maximized");
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--disable-dev-shm-usage");
         chromeOptions.addArguments("--disable-extensions");
         chromeOptions.addArguments("--disable-infobars");
         chromeOptions.addArguments("--disable-notifications");
@@ -60,16 +62,24 @@ public class DriverFactory {
         return chromeOptions;
     }
 
-    private static FirefoxDriver getFirefoxOptions(boolean isHeadless) {
+    private static FirefoxOptions getFirefoxOptions(boolean isHeadless) {
         FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.addArguments("--start-maximized");
+        firefoxOptions.addArguments("--disable-extensions");
+        firefoxOptions.addArguments("--disable-infobars");
+        firefoxOptions.addArguments("--disable-notifications");
+        firefoxOptions.addArguments("--ignored-certificates-errors");
         if (isHeadless) {
             firefoxOptions.addArguments("--headless");
         }
-        return new FirefoxDriver(firefoxOptions);
+        return firefoxOptions;
     }
 
     private static EdgeOptions getEdgeOptions(boolean isHeadless) {
         EdgeOptions edgeOptions = new EdgeOptions();
+        edgeOptions.addArguments("--start-maximized");
+        edgeOptions.addArguments("--no-sandbox");
+        edgeOptions.addArguments("--disable-dev-shm-usage");
         edgeOptions.addArguments("--disable-extensions");
         edgeOptions.addArguments("--disable-infobars");
         edgeOptions.addArguments("--disable-notifications");

@@ -3,7 +3,7 @@
   "email": "xpath://*[@id='__next'] //div[@class='card__register'] //input[@name='email']",
   "nome":"xpath://input[@type='name']",
   "senha": "xpath://*[@id='__next'] //div[@class='card__register'] //input[@name='password']",
-  "confirmar_senha": "xpath://input[@name='passwordConfirmation']",
+  "confirmar senha": "xpath://input[@name='passwordConfirmation']",
   "Conta com saldo": "id:toggleAddBalance",
   "Cadastrar": "xpath://*[@id='__next'] //div[@class='card__register'] //button[@type='submit']",
   "Numero da conta": "id:modalText",

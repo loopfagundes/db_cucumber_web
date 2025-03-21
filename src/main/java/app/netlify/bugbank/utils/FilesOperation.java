@@ -2,56 +2,36 @@ package app.netlify.bugbank.utils;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 public class FilesOperation {
+    private static final String DIR_PATH_PROPERTIES = Paths.get(System.getProperty("user.dir"), "src", "main", "resources").toString();
 
-    private static final String DIR_PATH_PROPERTIES = System.getProperty("user.dir")
-            + File.separator
-            + "src"
-            + File.separator
-            + "main"
-            + File.separator
-            + "resources"
-            + File.separator
-            + "properties"
-            + File.separator;
-
-    public static Properties getProperties(String name) throws IOException {
-        InputStream inputStream = null;
+    public static Properties loadProperties(String nameFolder, String name) {
+        Path filePath = Paths.get(DIR_PATH_PROPERTIES, nameFolder, name + ".properties");
         Properties prop = new Properties();
-        try {
-            File file = new File(DIR_PATH_PROPERTIES + name + ".properties");
-            inputStream = Files.newInputStream(file.toPath());
+        try (InputStream inputStream = Files.newInputStream(filePath)) {
             prop.load(inputStream);
-            return prop;
-        } catch (Exception e) {
-            throw new RuntimeException("Não carregou o arquivo " + e.getMessage());
-        } finally {
-            if (inputStream != null) {
-                inputStream.close();
-            }
+        } catch (IOException e) {
+            throw new RuntimeException("Erro ao carregar o arquivo: " + filePath, e);
         }
+        return prop;
     }
 
-    public static void setProperty(String nameProp, String key, String value) throws IOException {
-        Properties properties = getProperties(nameProp);
+    public static void setProperty(String nameFolder, String nameProp, String key, String value) throws IOException {
+        Properties properties = loadProperties(nameFolder, nameProp);
         properties.setProperty(key, value);
-        saveProperties(nameProp, properties);
+        saveProperties(nameFolder, nameProp, properties);
     }
 
-    private static void saveProperties(String name, Properties properties) throws IOException {
-        OutputStream outputStream = null;
-        try {
-            File file = new File(DIR_PATH_PROPERTIES + name + ".properties");
-            outputStream = Files.newOutputStream(file.toPath());
+    private static void saveProperties(String nameFolder, String name, Properties properties) throws IOException {
+        Path filePath = Paths.get(DIR_PATH_PROPERTIES, nameFolder, name + ".properties");
+        try (OutputStream outputStream = Files.newOutputStream(filePath)) {
             properties.store(outputStream, null);
-        } catch (Exception e) {
-            throw new RuntimeException("Não foi possível salvar as propriedades: " + e.getMessage());
-        } finally {
-            if (outputStream != null) {
-                outputStream.close();
-            }
+        } catch (IOException e) {
+            throw new RuntimeException("Erro ao salvar o arquivo: " + filePath, e);
         }
     }
 }

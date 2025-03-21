@@ -3,16 +3,5 @@
   "senha": "xpath://*[@id='__next'] //div[@class='card__login'] //input[@name='password']",
   "Acessar login": "xpath://*[@id='__next'] //div[@class='card__login'] //button[@type='submit']",
   "saldo_em_conta": "id:textBalance",
-  "nome_do_usuario_na_tela_de_login": "id:textName",
-  "Transferencia": "id:btn-TRANSFERÊNCIA",
-  "conta": "xpath://*[@id='__next'] //div[@class='transfer__ContainerForm-sc-1yjpf2r-8 gasnNO'] //input[@name='accountNumber']",
-  "digito": "xpath://input[@type='digit']",
-  "de transferencia": "xpath://input[@type='transferValue']",
-  "descricao": "xpath://*[@id='__next'] //div[@class='transfer__ContainerForm-sc-1yjpf2r-8 gasnNO']  //input[@name='description']",
-  "Transferir agora": "xpath://button[@type='submit']",
-  "Transferencia realizada com sucesso": "id:modalText",
-  "Fechar o modal": "id:btnCloseModal",
-  "Voltar o meu login": "id:btnBack",
-  "resto_saldo_em_conta": "id:textBalance",
-  "Sair da conta": "xpath://*[@class='home__ContainerLink-sc-1auj767-2 cCGrzy']"
+  "nome_do_usuario_na_tela_de_login": "id:textName"
 }
