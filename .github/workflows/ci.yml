@@ -1,0 +1,39 @@
+
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-24.04
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Google Chrome install
+      run: |
+        chmod +x ./InstallChrome.sh
+        ./InstallChrome.sh
+
+    - name: Maven Clean
+      run: mvn clean
+
+    - name: Maven Dependency Tree
+      run: mvn dependency:tree
+      
+    - name: Maven Install
+      run: mvn install -DskipTests=true
+
+    - name: Run Tests
+      run: mvn test -X -Dheadless=true -Dtest=LoginAndPurchaseTestCase || { echo 'Testes falharam'; exit 1; }
