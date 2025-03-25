@@ -70,26 +70,17 @@ public class Page {
     }
 
     public static By getLocator(String locateStrategy, String selector) {
-        switch (locateStrategy.toLowerCase()) {
-            case "class_name":
-                return By.className(selector);
-            case "css_selector":
-                return By.cssSelector(selector);
-            case "id":
-                return By.id(selector);
-            case "name":
-                return By.name(selector);
-            case "link_text":
-                return By.linkText(selector);
-            case "partial_link_text":
-                return By.partialLinkText(selector);
-            case "tag_name":
-                return By.tagName(selector);
-            case "xpath":
-                return By.xpath(selector);
-            default:
-                throw new IllegalStateException(
-                        String.format("Cannot define locator for WebElement definition: %s", locateStrategy));
-        }
+        return switch (locateStrategy.toLowerCase()) {
+            case "class_name" -> By.className(selector);
+            case "css_selector" -> By.cssSelector(selector);
+            case "id" -> By.id(selector);
+            case "name" -> By.name(selector);
+            case "link_text" -> By.linkText(selector);
+            case "partial_link_text" -> By.partialLinkText(selector);
+            case "tag_name" -> By.tagName(selector);
+            case "xpath" -> By.xpath(selector);
+            default -> throw new IllegalStateException(
+                    String.format("Cannot define locator for WebElement definition: %s", locateStrategy));
+        };
     }
 }
