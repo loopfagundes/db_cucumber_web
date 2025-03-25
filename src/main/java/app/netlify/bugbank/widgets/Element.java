@@ -1,7 +1,7 @@
 package app.netlify.bugbank.widgets;
 
 import app.netlify.bugbank.Page;
-import app.netlify.bugbank.utils.FilesOperation;
+import app.netlify.bugbank.managers.PropertiesManager;
 import app.netlify.bugbank.drivers.DriverManager;
 import com.github.javafaker.Faker;
 import org.json.simple.parser.ParseException;
@@ -69,7 +69,7 @@ public class Element {
     public void getData(String nameProp, String key) throws Exception {
         try {
             WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
-            String getProp = FilesOperation.loadProperties("properties", nameProp).getProperty(key);
+            String getProp = PropertiesManager.loadProperties("properties", nameProp).getProperty(key);
             element.clear();
             element.sendKeys(getProp);
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
@@ -82,8 +82,8 @@ public class Element {
         try {
             WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
             String replacement = element.getText().replace("á", "a");
-            FilesOperation.setProperty("properties", nameProp, value, replacement);
-            Assert.assertEquals(replacement, FilesOperation.loadProperties("properties", nameProp).getProperty(value));
+            PropertiesManager.setProperty("properties", nameProp, value, replacement);
+            Assert.assertEquals(replacement, PropertiesManager.loadProperties("properties", nameProp).getProperty(value));
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
                  TimeoutException e) {
             throw new Exception(e);
@@ -93,8 +93,8 @@ public class Element {
     public void setValue(String nameProp, String value) throws Exception {
         try {
             WebElement element = this.wait.until(ExpectedConditions.visibilityOf(locator));
-            FilesOperation.setProperty("properties", nameProp, value, element.getText());
-            Assert.assertEquals(element.getText(), FilesOperation.loadProperties("properties", nameProp).getProperty(value));
+            PropertiesManager.setProperty("properties", nameProp, value, element.getText());
+            Assert.assertEquals(element.getText(), PropertiesManager.loadProperties("properties", nameProp).getProperty(value));
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
                  TimeoutException e) {
             throw new Exception(e);
@@ -107,8 +107,8 @@ public class Element {
             String[] separator = element.getText().split("-");
             String justNumber = separator[0].replaceAll("[^0-9]", "");
             String justDigit = separator[1].replaceAll("[^0-9]", "");
-            FilesOperation.setProperty("properties", nameProp, number, justNumber);
-            FilesOperation.setProperty("properties", nameProp, digit, justDigit);
+            PropertiesManager.setProperty("properties", nameProp, number, justNumber);
+            PropertiesManager.setProperty("properties", nameProp, digit, justDigit);
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
                  TimeoutException e) {
             throw new Exception(e);
@@ -122,7 +122,7 @@ public class Element {
             int fakeCent = Faker.instance().number().numberBetween(0, 99);
             String fakeValue = fakeCash + "." + fakeCent;
             element.sendKeys(fakeValue);
-            FilesOperation.setProperty("properties", nameProp, key, fakeValue);
+            PropertiesManager.setProperty("properties", nameProp, key, fakeValue);
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
                  TimeoutException e) {
             throw new Exception(e);

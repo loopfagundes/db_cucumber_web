@@ -2,7 +2,6 @@ package app.netlify.bugbank.managers;
 
 import app.netlify.bugbank.dto.UserDataDTO;
 import app.netlify.bugbank.dto.UserModelDTO;
-import app.netlify.bugbank.utils.FilesOperation;
 import app.netlify.bugbank.widgets.Element;
 
 public class UserFieldManager {
@@ -12,11 +11,11 @@ public class UserFieldManager {
         switch (fieldType) {
             case "email":
                 data = userData.getEmail();
-                FilesOperation.setProperty("properties", nameProp, "email", userData.getEmail());
+                PropertiesManager.setProperty("properties", nameProp, "email", userData.getEmail());
                 break;
             case "nome":
                 data = userData.getName();
-                FilesOperation.setProperty("properties", nameProp, "nome", userData.getName());
+                PropertiesManager.setProperty("properties", nameProp, "nome", userData.getName());
                 break;
             default:
                 throw new IllegalArgumentException("Campo inválido: " + fieldType);

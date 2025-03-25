@@ -3,7 +3,7 @@ package app.netlify.bugbank.stepdefs;
 import app.netlify.bugbank.Page;
 import app.netlify.bugbank.drivers.DriverFactory;
 import app.netlify.bugbank.drivers.DriverManager;
-import app.netlify.bugbank.utils.LoggerFactory;
+import app.netlify.bugbank.utils.AppLogger;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -14,7 +14,7 @@ public class Hooks {
 
     @Before
     public void beforeTest(Scenario scenario) {
-        LoggerFactory.log_INFO("BEFORE: THREAD ID : " + Thread.currentThread().getId() + ","
+        AppLogger.logInfo("BEFORE: THREAD ID : " + Thread.currentThread().getId() + ","
                 + "SCENARIO NAME: " + scenario.getName());
 
         Page.setPage(scenario.getSourceTagNames());
@@ -29,7 +29,7 @@ public class Hooks {
 
     @After
     public void afterTest(Scenario scenario) {
-        LoggerFactory.log_INFO("AFTER: THREAD ID : " + Thread.currentThread().getId() + ","
+        AppLogger.logInfo("AFTER: THREAD ID : " + Thread.currentThread().getId() + ","
                 + "SCENARIO NAME: " + scenario.getName());
 
         if (scenario.isFailed()) {
