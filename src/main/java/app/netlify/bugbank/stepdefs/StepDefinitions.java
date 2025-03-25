@@ -5,7 +5,7 @@ import app.netlify.bugbank.dto.UserDataDTO;
 import app.netlify.bugbank.widgets.Element;
 import io.cucumber.java.pt.Então;
 
-import static app.netlify.bugbank.utils.FilesOperation.*;
+import static app.netlify.bugbank.managers.PropertiesManager.*;
 
 public class StepDefinitions {
 

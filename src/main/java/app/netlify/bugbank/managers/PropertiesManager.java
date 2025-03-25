@@ -1,4 +1,4 @@
-package app.netlify.bugbank.utils;
+package app.netlify.bugbank.managers;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
 
-public class FilesOperation {
+public class PropertiesManager {
     private static final String DIR_PATH_PROPERTIES = Paths.get(System.getProperty("user.dir"), "src", "main", "resources").toString();
 
     public static Properties loadProperties(String nameFolder, String name) {
