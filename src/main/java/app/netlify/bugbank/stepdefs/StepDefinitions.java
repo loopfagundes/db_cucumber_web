@@ -1,6 +1,7 @@
 package app.netlify.bugbank.stepdefs;
 
 import app.netlify.bugbank.drivers.DriverManager;
+import app.netlify.bugbank.dto.UserDataDTO;
 import app.netlify.bugbank.widgets.Element;
 import io.cucumber.java.pt.Então;
 
@@ -21,6 +22,11 @@ public class StepDefinitions {
     @Então("Preencho o campo {string} do usuário {string}")
     public void i_fill_in(String locator, String dados) throws Exception {
         new Element(locator).getData(dados, locator);
+    }
+
+    @Então("Preencho o campo {string} do usuário")
+    public void i_fill_in_password(String locator) throws Exception {
+        new Element(locator).getDataUser(UserDataDTO.dataUser().getPassword());
     }
 
     @Então("Armazeno o nome do {string} e valido se {string}")

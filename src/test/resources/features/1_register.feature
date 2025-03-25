@@ -8,8 +8,8 @@ Funcionalidade: Cadastrar duas contas com saldos.
     Quando Clico no botão "Registrar"
     E Preencho o campo "email" com "email" do usuário "dataUser_1"
     E Preencho o campo "nome" com "nome" do usuário "dataUser_1"
-    E Preencho o campo "senha" com "senha" do usuário "dataUser_1"
-    E Preencho o campo "confirmar senha" com "confirmar senha" do usuário "dataUser_1"
+    E Preencho o campo "senha" do usuário
+    E Preencho o campo "confirmar senha" do usuário
     E Clico no botão "Conta com saldo" com javascript
     E Clico no botão "Cadastrar" com javascript
     E Armazeno o "Numero da conta", dados "dataUser_1", "conta" e "digito"
@@ -21,8 +21,8 @@ Funcionalidade: Cadastrar duas contas com saldos.
     Quando Clico no botão "Registrar"
     E Preencho o campo "email" com "email" do usuário "dataUser_2"
     E Preencho o campo "nome" com "nome" do usuário "dataUser_2"
-    E Preencho o campo "senha" com "senha" do usuário "dataUser_2"
-    E Preencho o campo "confirmar senha" com "confirmar senha" do usuário "dataUser_2"
+    E Preencho o campo "senha" do usuário
+    E Preencho o campo "confirmar senha" do usuário
     E Clico no botão "Conta com saldo" com javascript
     E Clico no botão "Cadastrar" com javascript
     E Armazeno o "Numero da conta", dados "dataUser_2", "conta" e "digito"

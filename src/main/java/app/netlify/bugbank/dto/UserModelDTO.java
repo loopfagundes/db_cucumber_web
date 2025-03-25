@@ -1,22 +1,18 @@
 package app.netlify.bugbank.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Setter
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class UserModelDTO {
-    String email;
-    String name;
-    String password;
-
-    public UserModelDTO() {
-
-    }
-
-    public UserModelDTO(String email, String name, String password) {
-        this.email = email;
-        this.name = name;
-        this.password = password;
-    }
+    private String email;
+    private String name;
+    private String password;
 }

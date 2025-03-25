@@ -18,11 +18,6 @@ public class UserFieldManager {
                 data = userData.getName();
                 FilesOperation.setProperty("properties", nameProp, "nome", userData.getName());
                 break;
-            case "senha":
-            case "confirmar senha":
-                data = userData.getPassword();
-                FilesOperation.setProperty("properties", nameProp, "senha", userData.getPassword());
-                break;
             default:
                 throw new IllegalArgumentException("Campo inválido: " + fieldType);
         }
